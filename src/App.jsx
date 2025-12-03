@@ -6,7 +6,7 @@ import ApplyLoanPage from './pages/ApplyLoanPage'
 import MyLoansPage from './pages/MyLoansPage'
 import RepaymentPage from './pages/RepaymentPage'
 import AdminDashboard from './pages/AdminDashboard'
-import AdminLoanDetails from "./pages/Adminloandetails"
+import AdminLoanDetails from "./pages/AdminLoanDetails"
 import ForgotPassword from "./pages/ForgotPassword"
 import ResetPassword from "./pages/ResetPassword"
 import Profile from "./pages/Profile"
