@@ -3,7 +3,7 @@ import { Search, Filter, CheckCircle, Clock, XCircle, DollarSign, User, Trending
 import AdminHeader from "../components/AdminHeader";
 import AdminSidebar from "../components/AdminSidebar";
 
-export default function AdminLoanDetails() {
+ function AdminLoanDetails() {
   const [loans, setLoans] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -467,4 +467,7 @@ export default function AdminLoanDetails() {
     </div>
       </>
   );
-}
+};
+
+
+export default AdminLoanDetails
