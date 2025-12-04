@@ -55,7 +55,7 @@ export default function Dashboard() {
       }
 
         let data = await response.json()
-        console.log(data)
+
         setLoanDetails(data);
         setLoading(false)
       } catch(err){

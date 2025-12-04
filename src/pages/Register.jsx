@@ -11,6 +11,7 @@ export default function Register() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phoneNumber: '',
     password: ''
   });
 
@@ -38,7 +39,7 @@ export default function Register() {
       : {
           name: formData.name,
           email: formData.email,
-          phone: formData.phone,
+          phone: formData.phoneNumber,
           password: formData.password,
         };
 
@@ -53,13 +54,22 @@ export default function Register() {
 
     let data = await response.json(); // ✅ Now data always exists
 
-     console.log('Response:', data)
+
 
     if (!response.ok) {
-      alert(data.message || "Something went wrong");
+      toast.error(data.message || "Something went wrong")
       setLoading(false);
       return;
     }
+
+    if(!isLogin) {
+      toast.success("Account Created Successfully! Please login.");
+      navigate('/login')
+    } else {
+      toast.success("login Successful")
+    }
+
+
    
   
        if (data.user?.role === "admin") {

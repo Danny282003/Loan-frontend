@@ -27,9 +27,8 @@ function Header({ setSidebarOpen}) {
       const { loansDetails } = useContext(UserContext);
 
      const name = loansDetails?.user?.name || "Loading...";
+     const initials = name.split(" ").map(n => n[0]).join("").toUpperCase()
     const email = loansDetails?.user?.email || "";
-
-    console.log(loansDetails)
   
   return (
     <div>
@@ -57,7 +56,7 @@ function Header({ setSidebarOpen}) {
               </button>
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold">JD</span>
+                  <span className="text-white font-semibold">{initials}</span>
                 </div>
                 <div className="hidden md:block">
                   <p className="text-sm font-semibold text-gray-800">{name}</p>

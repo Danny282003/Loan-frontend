@@ -50,7 +50,7 @@ export default function MyLoansPage() {
         method: 'GET',
         credentials: 'include'
         });
-        console.log(response.ok)
+
         if (!response.ok) {
         const errorData = await response.json();
         console.log('Error response:', errorData);
@@ -65,7 +65,7 @@ export default function MyLoansPage() {
       }
 
         let data = await response.json()
-        console.log(data)
+ 
         setPageDetails(data);
         setLoading(false)
 
@@ -87,7 +87,7 @@ if (loading) {
   );
 }
 
-console.log('pop up', selectedLoan)
+
   const loans = pageDetails || []
   
 

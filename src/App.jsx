@@ -12,12 +12,15 @@ import ResetPassword from "./pages/ResetPassword"
 import Profile from "./pages/Profile"
 import LandingPage from "./pages/LandingPage"
 import About from "./pages/About"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 
 
 
 function App() {
   return (
     <>
+    <ToastContainer position="top-right" autoClose={3000}/>
       <BrowserRouter>
         <Routes>
           <Route index element={<LandingPage />} />

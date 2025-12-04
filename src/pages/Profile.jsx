@@ -50,9 +50,7 @@ const [editForm, setEditForm] = useState({
       if(loansResponse.status === 401){
         navigate('/login')
       }
-      console.log('This the user data', userData)
-      console.log('This is the loan data',loansData)
-      console.log('This is thr repayment',repaymentsData)
+     
       setUser(userData.data || userData);
       setLoans(Array.isArray(loansData.data)? loansData.data : Array.isArray(loansData.loans)? loansData.loans : Array.isArray(loansData) ? loansData : []);
       setRepayments(repaymentsData.repayments);
@@ -62,8 +60,6 @@ const [editForm, setEditForm] = useState({
       setLoading(false);
     }
   };
-
-  console.log(repayments)
   
   const getStatusBadge = (status) => {
     const statusLower = status?.toLowerCase() || "";

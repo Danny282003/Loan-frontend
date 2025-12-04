@@ -184,7 +184,7 @@ Thank you for your payment.
     </div>
   );
 }
-
+// console.log(paginatedPayments)
   return (
     <div className="min-h-screen bg-green-50">
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -364,7 +364,7 @@ Thank you for your payment.
                     <div className="space-y-3">
                       {paginatedPayments.map((p) => (
                         <div
-                          key={p._id}
+                          key={p.id}
                           className="border rounded-lg p-4 flex justify-between items-center hover:bg-gray-50 transition-all"
                         >
                           <div>
