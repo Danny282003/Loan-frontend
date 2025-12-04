@@ -13,6 +13,7 @@ import {
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function RepaymentPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -110,7 +111,7 @@ export default function RepaymentPage() {
 
       if (!res.ok) return alert(data.message);
 
-      alert("Payment successful!");
+      toast.success("Payment successful!");
 
       // Refresh repayment info
       loadRepaymentDetails(selectedLoan);
