@@ -12,6 +12,7 @@ import AdminSidebar from "../components/AdminSidebar";
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [actionLoading, setActionLoading] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const render = "https://quickcredit-wxnq.onrender.com"
 
   useEffect(() => {
     fetchLoans();
@@ -20,7 +21,7 @@ import AdminSidebar from "../components/AdminSidebar";
   const fetchLoans = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/api/admin/loans", {
+      const response = await fetch(`${render}/api/admin/loans`, {
         credentials: "include",
       });
       const data = await response.json();
@@ -34,7 +35,7 @@ import AdminSidebar from "../components/AdminSidebar";
 
   const fetchLoanDetails = async (loanId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/loans/${loanId}`, {
+      const response = await fetch(`${render}/api/admin/loans/${loanId}`, {
         credentials: "include",
       });
       const data = await response.json();
@@ -50,7 +51,7 @@ import AdminSidebar from "../components/AdminSidebar";
     if (!window.confirm("Approve and disburse this loan?")) return;
     setActionLoading(loanId);
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/approve/${loanId}`, {
+      const response = await fetch(`${render}/api/admin/approve/${loanId}`, {
         method: "PATCH",
         credentials: "include",
       });
@@ -81,7 +82,7 @@ import AdminSidebar from "../components/AdminSidebar";
     
     setActionLoading(loanId);
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/reject/${loanId}`, {
+      const response = await fetch(`${render}/api/admin/reject/${loanId}`, {
         method: "PATCH",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

@@ -19,6 +19,7 @@ const [editForm, setEditForm] = useState({
   email: "",
   phone: "",
 });
+const render = "https://quickcredit-wxnq.onrender.com"
 
   const navigate = useNavigate();
 
@@ -29,19 +30,19 @@ const [editForm, setEditForm] = useState({
   const fetchUserData = async () => {
     try {
       setLoading(true);
-      const userResponse = await fetch("http://localhost:3000/api/user/profile", {
+      const userResponse = await fetch(`${render}/api/user/profile`, {
         method: 'GET',
         credentials: "include",
       });
       const userData = await userResponse.json();
 
-      const loansResponse = await fetch("http://localhost:3000/api/loan/myLoans", {
+      const loansResponse = await fetch(`${render}/api/loan/myLoans`, {
         method: 'GET',
         credentials: "include",
       });
       const loansData = await loansResponse.json();
 
-      const repaymentsResponse = await fetch("http://localhost:3000/api/repay/paymentHistory", {
+      const repaymentsResponse = await fetch(`${render}/api/repay/paymentHistory`, {
         method: 'GET',
         credentials: "include",
       });
@@ -104,7 +105,7 @@ const updateProfile = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:3000/api/user/updateProfile", {
+    const res = await fetch(`${render}/api/user/updateProfile`, {
       method: "PATCH",
       credentials: "include",
       headers: { "Content-Type": "application/json" },

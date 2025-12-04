@@ -40,13 +40,15 @@ export default function AdminDashboard() {
 
   const navigate = useNavigate();
 
+  const render = "https://quickcredit-wxnq.onrender.com"
+
   // Fetch loans
   useEffect(() => {
     let mounted = true;
     const load = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:3000/api/admin/loans", {
+        const res = await fetch(`${render}/api/admin/loans`, {
           method: "GET",
           credentials: "include",
         });
@@ -103,7 +105,7 @@ export default function AdminDashboard() {
     if (!window.confirm("Approve and disburse this loan?")) return;
     setActionLoading(loanId);
     try {
-      const res = await fetch(`http://localhost:3000/api/admin/approve/${loanId}`, {
+      const res = await fetch(`${render}/api/admin/approve/${loanId}`, {
         method: "PATCH",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -133,7 +135,7 @@ export default function AdminDashboard() {
     }
     setActionLoading(loanId);
     try {
-      const res = await fetch(`http://localhost:3000/api/admin/reject/${loanId}`, {
+      const res = await fetch(`${render}/api/admin/reject/${loanId}`, {
         method: "PATCH",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

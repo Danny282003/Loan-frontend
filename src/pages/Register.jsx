@@ -14,6 +14,7 @@ export default function Register() {
     phoneNumber: '',
     password: ''
   });
+  const render = "https://quickcredit-wxnq.onrender.com"
 
   const navigate = useNavigate()
   const handleChange = (e) => {
@@ -28,8 +29,8 @@ export default function Register() {
 
   try {
     let url = isLogin
-      ? "http://localhost:3000/api/user/login"
-      : "http://localhost:3000/api/user/register";
+      ? `${render}/api/user/login`
+      : `${render}/api/user/register`;
 
     let bodyData = isLogin
       ? {
@@ -78,12 +79,6 @@ export default function Register() {
       navigate("/home");
     }
   
-    // SUCCESS
-    // alert(data.message)
-
-    // Redirect user based on role
-
-      // return alert(data.message)
 
   } catch (err) {
     toast.error("Internal Server Error");
@@ -95,61 +90,6 @@ export default function Register() {
 
 };
 
-    // let handleSubmit = async(e)=>{
-    //     e.preventDefault()
-    //     setLoading(true)
-    //     try{
-    //       if(isLogin) {
-    //          let response = await fetch('http://localhost:3000/api/user/login', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type' : 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //               email: formData.email,
-    //               password: formData.password
-    //             })
-    //         })
-
-    //         let data = await response.json()
-    //         toast.success(data.message)
-    //       } else {
-    //             let response = await fetch('http://localhost:3000/api/user/register', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type' : 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //               name: formData.name,
-    //               email: formData.email,
-    //               password: formData.password
-    //             })
-    //         })
-
-    //         let data = await response.json()
-
-    //    if (!response.ok) {
-    //       toast.success(data.message || 'Something went wrong');
-    //       setLoading(false); // ← Stop loading on error
-    //       return;
-    //   }
-
-    //         alert(data.message)
-    //       }
-
-    //       if (data.user.role === 'admin') {
-    //     navigate('/admin/dashboard'); // ← Admin goes here
-    //   } else {
-    //     navigate('/dashboard'); // ← Regular user goes here
-    //   }
-    //       // window.location.href = '/dashboard';
-           
-    //     } catch(err){
-    //         alert('Internal Server Error')
-    //         console.log(err)
-    //         setLoading(false)
-    //     }
-    // }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 flex items-center justify-center p-4">

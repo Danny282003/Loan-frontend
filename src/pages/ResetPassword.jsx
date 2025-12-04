@@ -14,6 +14,7 @@ export default function ResetPassword() {
   const [error, setError] = useState("");
   const [passwordStrength, setPasswordStrength] = useState({ score: 0, text: "", color: "" });
   const params = useParams()
+  const render = "https://quickcredit-wxnq.onrender.com"
 
   const getTokenFromUrl = () => {
     const params = new URLSearchParams(window.location.search);
@@ -55,7 +56,7 @@ export default function ResetPassword() {
 
     try {
       // const token = getTokenFromUrl();
-      const response = await fetch(`http://localhost:3000/api/user/reset-password/${params.resetToken}`, {
+      const response = await fetch(`${render}/api/user/reset-password/${params.resetToken}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

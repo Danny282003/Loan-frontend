@@ -37,6 +37,7 @@ export default function MyLoansPage() {
   const navigate = useNavigate()
   const [selectedLoan, setSelectedLoan] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const render = "https://quickcredit-wxnq.onrender.com"
 
 
   // Sample loans data - will be replaced with API data
@@ -46,7 +47,7 @@ export default function MyLoansPage() {
       try{
         setLoading(true)
 
-        let response = await fetch("http://localhost:3000/api/loan/myLoans", {
+        let response = await fetch(`${render}/api/loan/myLoans`, {
         method: 'GET',
         credentials: 'include'
         });

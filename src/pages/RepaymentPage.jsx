@@ -34,6 +34,7 @@ export default function RepaymentPage() {
   const itemsPerPage = 5;
 
   const navigate = useNavigate();
+  const render = "https://quickcredit-wxnq.onrender.com"
 
   // ----------------------------
   // Load user's loans
@@ -41,7 +42,7 @@ export default function RepaymentPage() {
   useEffect(() => {
     const fetchLoans = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/loan/myLoans", {
+        const res = await fetch(`${render}/api/loan/myLoans`, {
           method: "GET",
           credentials: "include",
         });
@@ -78,7 +79,7 @@ export default function RepaymentPage() {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/api/repay/details/${loanId}`,
+        `${render}/api/repay/details/${loanId}`,
         {
           method: "GET",
           credentials: "include",
@@ -98,7 +99,7 @@ export default function RepaymentPage() {
   const submitPayment = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/repay/pay/${selectedLoan}`,
+        `${render}/api/repay/pay/${selectedLoan}`,
         {
           method: "POST",
           credentials: "include",

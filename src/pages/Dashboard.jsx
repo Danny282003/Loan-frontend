@@ -28,7 +28,7 @@ export default function Dashboard() {
    const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loansDetails, setLoanDetails] = useState(null);
   const [loading, setLoading] = useState(true)
-  
+  const render = "https://quickcredit-wxnq.onrender.com"
 
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ export default function Dashboard() {
     let fetcher = async()=>{
       try{
         setLoading(true)
-        let response = await fetch("http://localhost:3000/api/dashboard", {
+        let response = await fetch(`${render}/api/dashboard`, {
           method: 'GET',
           credentials: 'include'
         });

@@ -40,7 +40,7 @@ export default function ApplyLoanPage() {
     bankName: ''
   });
   const navigate = useNavigate()
-
+  const render = "https://quickcredit-wxnq.onrender.com"
   const loanPurposes = [
     'Business Expansion',
     'Education',
@@ -92,7 +92,7 @@ export default function ApplyLoanPage() {
           duration: Number(formData.duration),
           income: Number(formData.income)
         }
-        let url = "http://localhost:3000/api/loan/apply"
+        let url = `${render}/api/loan/apply`
     
         let response = await fetch(url, {
           method: "POST",

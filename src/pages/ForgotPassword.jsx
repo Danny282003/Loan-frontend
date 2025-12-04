@@ -6,13 +6,14 @@ export default function ForgotPassword() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const render = "https://quickcredit-wxnq.onrender.com"
 
   const handleSubmit = async () => {
     setError("");
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/user/forgot-password", {
+      const response = await fetch(`${render}/api/user/forgot-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
