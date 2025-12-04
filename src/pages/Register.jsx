@@ -61,7 +61,6 @@ export default function Register() {
       return;
     }
    
-    alert(data.message)
   
        if (data.user?.role === "admin") {
       navigate("/admin/dashboard");
